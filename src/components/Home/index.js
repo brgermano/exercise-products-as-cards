@@ -29,7 +29,9 @@ class Home extends Component {
                 </button>
                 <ul className="right hide-on-med-and-down">
                   <li>
-                    <Link to="/list">List</Link>
+                    <Link className="btn" to="/list">
+                      List
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -43,6 +45,10 @@ class Home extends Component {
           </nav>
         </header>
         <main>
+          <div className="center-align">
+            <h2>Products as cards</h2>
+            <p>To see a list of cards, click on &#39;List&#39; in the right side of the page</p>
+          </div>
           <Switch>
             <Route path="/list/:listId" component={List} />
             <Route path="/list" component={List} />

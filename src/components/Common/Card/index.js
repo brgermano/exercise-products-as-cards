@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { uniqueId } from 'lodash';
+import { uniqueId, map } from 'lodash';
 import { Link } from 'react-router-dom';
 
 const Card = props => {
@@ -9,7 +9,7 @@ const Card = props => {
     type
   } = props;
   const city = city_label; // eslint-disable-line
-  const paramsList = params.map(param => (
+  const paramsList = map(params, param => (
     <li key={uniqueId('afnpro- test-params')}>
       <span>{param[0]}:</span> <span>{param[1]}</span>
     </li>
@@ -50,8 +50,10 @@ const Card = props => {
 export default Card;
 
 Card.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  params: PropTypes.arrayOf(PropTypes.shape)
 };
 Card.defaultProps = {
-  type: 'list'
+  type: 'list',
+  params: []
 };
